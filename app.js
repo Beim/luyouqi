@@ -52,9 +52,9 @@ let checkAndReboot = () => {
             let d1 = new Date(lastLogin).toLocaleTimeString()
             let d2 = new Date(lastReboot).toLocaleTimeString()
             wlog(`online, lastLogin: ${d1}, lastReboot: ${d2}`)
-        } else if (offlineCheck <= 3) { // 若不在线, 且检测到不在线的次数小于3, 将offlineCheck 加一
+        } else if (offlineCheck <= 3) { // 若不在线, 且检测到不在线的次数小于等于3, 将offlineCheck 加一
             wlog('!maybe offline, offlineCheck = ', ++offlineCheck)
-        } else { // 检测到3 次不在线, 尝试重启
+        } else { // 检测到4 次不在线, 尝试重启
             wlog('!offline, restart now')
             offlineCheck = 0 // 重置检测到不在线的次数
             request.reboot([gcookie, gstok]).then((res) => {
