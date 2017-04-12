@@ -32,20 +32,60 @@ const login = (password) => {
 const reboot = ([cookie, stok]) => {
     return new Promise((res, rej) => {
         let Cookie = util.stringifyCookie(cookie)
-        let postData = `{"method":"system.os.reboot","data":{}}`
+        let postData = '-----------------------------6296157061299241973746117515\n' + 
+                        'Content-Disposition: form-data; name="enable"\n' + 1 + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="Username"\n' + 1143710517 + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="Password"\n' + 'a186004' + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' + 
+                        'Content-Disposition: form-data; name="IP"\n' + '0.0.0.0' + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="Mask"\n' + '0.0.0.0' + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="Gateway"\n' + '0.0.0.0' + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="act_submit"\n' + 1 + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="StartMode"\n' + 1 + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="dhcpscript_type"\n' + 1 +'\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="DhcpMode"\n' + 2 +'\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="Version"\n' + 0.00 + '\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="DataFile"\n' + ' \n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="datafile_mentohust"; filename=""\n' +
+                        'Content-Type: application/octet-stream\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="datafile_8021x"; filename=""\n' +
+                        'Content-Type: application/octet-stream\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="datafile_SuConfig"; filename=""\n' +
+                        'Content-Type: application/octet-stream\n' +
+                        '-----------------------------6296157061299241973746117515\n' +
+                        'Content-Disposition: form-data; name="datafile_W32N55"; filename=""\n' +
+                        'Content-Type: application/octet-stream\n' +
+                        '-----------------------------6296157061299241973746117515--';
+
         let options = {
-            'hostname': '192.168.10.122',
-            'path': `/cgi-bin/turbo/;${stok}/proxy/call?_system.os.reboot`,
+            'hostname': '192.168.1.1',
+            'path': `/cgi-bin/turbo/;stok=${stok}/admin_web/plugin/mentohust`,
             'method': 'POST',
             headers: {
-                'Accept': 'application/json, text/javascript, */*; q=0.01',
-                'Content-Length': 39,
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Encoding':'gzip, deflate',
+                'Accept-Language':'zh-CN,zh;q=0.8',
+                'Connection':'keep-alive',
+                'Content-Length':postData.length,
+                'Content-Type':'multipart/form-data; boundary=---------------------------6296157061299241973746117515',
                 Cookie,
-                'Host': '192.168.10.122',
-                'Origin': 'http://192.168.10.122',
-                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/52.0.2743.116 Chrome/52.0.2743.116 Safari/537.36',
-                'X-Requested-With': 'XMLHttpRequest'
+                'Host':'192.168.1.1',
+                'Origin':'http://192.168.1.1',
+                'Referer':`http://192.168.1.1/cgi-bin/turbo/;stok=${stok}/admin_web/plugin/mentohust`,
+                'Upgrade-Insecure-Requests':1
             }
         }
         let req = http.request(options, (resp) => {
